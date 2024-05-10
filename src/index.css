@@ -5,3 +5,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* custom css */
+#navbar a.active{
+    background-color: #083061;
+}
+
+
+
+
