@@ -11,9 +11,9 @@ export default {
         roboto: ['Roboto', 'sans-serif'],
       },
       colors: {
-        primaryColor: '#2bb4e6',
+        primaryColor: '#083061',
         secondaryColor: '#7A7A7A',
-        thirdColor: '#083061'  
+        thirdColor: '#2bb4e6'   
       }
     },
   },

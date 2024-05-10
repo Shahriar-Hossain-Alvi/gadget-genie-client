@@ -6,6 +6,8 @@ import AddService from "../Pages/AddService"
 import ManageService from "../Pages/ManageService";
 import BookedService from "../Pages/BookedService";
 import TodoService from "../Pages/TodoService"
+import Register from "../Pages/HandleUser/Register";
+import Login from "../Pages/HandleUser/Login";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +37,14 @@ const router = createBrowserRouter([
             {
                 path: "/todoService",
                 element: <TodoService></TodoService>
+            },
+            {
+                path: "/register",
+                element: <Register></Register>
+            },
+            {
+                path: "/login",
+                element: <Login></Login>
             }
         ]
     },

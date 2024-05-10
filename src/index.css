@@ -9,7 +9,11 @@
 
 /* custom css */
 #navbar a.active{
-    background-color: #083061;
+    background-color: #2bb4e6;
+}
+
+#navbar a:hover{
+    background-color: #7a7a7a;
 }
 
 
