@@ -8,11 +8,13 @@ import BookedService from "../Pages/BookedService";
 import TodoService from "../Pages/TodoService"
 import Register from "../Pages/HandleUser/Register";
 import Login from "../Pages/HandleUser/Login";
+import ErrorPage from "../Layout/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
