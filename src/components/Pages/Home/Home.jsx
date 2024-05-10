@@ -1,4 +1,6 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
+
+
 
 const Home = () => {
     return (
@@ -6,9 +8,12 @@ const Home = () => {
             <Helmet>
                 <title>Home | Gadget Genie</title>
             </Helmet>
-            <h2 className="text-5xl text-red-700">This is home</h2>
-            <h2 className="text-5xl text-primaryColor">This is home</h2>
-            <h2 className="text-5xl text-secondaryColor">This is home</h2>
+
+            <div>
+                <h2 className="text-5xl text-red-700">This is home</h2>
+                <h2 className="text-5xl text-primaryColor">This is home</h2>
+                <h2 className="text-5xl text-secondaryColor">This is home</h2>
+            </div>
         </div>
     );
 };
