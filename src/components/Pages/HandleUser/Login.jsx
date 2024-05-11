@@ -1,13 +1,94 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+import Lottie from 'react-lottie';
+import logInAnimation from "../../../assets/Animation/Animation - 1715428069401.json";
 
 
 const Login = () => {
+
+    //animation controls
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: logInAnimation,
+        rendererSettings: {
+            preserveAspectRatio: "xMidYMid slice"
+        }
+    };
+
+
+    const handleLogin = e => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        const user = { email, password };
+        console.log(user);
+    }
+
     return (
         <div>
             <Helmet>
                 <title>Login | Gadget Genie</title>
             </Helmet>
-            <h2>LogIN user</h2>
+
+
+            <div className="my-8 flex flex-col lg:flex-row items-center justify-center">
+                <div className="lg:w-2/5 mb-8 lg:mb-0">
+                    <Lottie
+                        options={defaultOptions}
+                        height={400}
+                        width={400}
+                    />
+                </div>
+
+
+                {/* login form */}
+                <div className="hero lg:w-3/5">
+                    <div className="hero-content flex-col lg:flex-row w-full">
+                        {/* registration form */}
+                        <div className="card w-full  shadow-2xl shadow-primaryColor">
+                            <div className="text-center mt-4">
+                                <h1 className="text-5xl font-bold">Login</h1>
+                                <p className="py-6">Login with your existing account or <Link className="text-red-600 hover:underline" to="/register">Register</Link></p>
+                            </div>
+
+
+                            {/* form starts here */}
+                            <form onSubmit={handleLogin} className="card-body">
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Email</span>
+                                    </label>
+                                    <input name="email" type="email" placeholder="Enter your email" className="input input-bordered" required />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Password</span>
+                                    </label>
+                                    <input name="password" type="password" placeholder="Enter your password" className="input input-bordered" required />
+                                    <label className="label">
+                                        <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    </label>
+                                </div>
+                                <div className="form-control mt-6">
+                                    <input className="btn bg-primaryColor text-white hover:bg-thirdColor" type="submit" value="Login" />
+                                </div>
+                            </form>
+
+                            <div className="divider divider-info">OR</div>
+
+                            <div className="flex justify-center my-7 items-center gap-3">
+                                Login with <button className="btn btn-circle bg-transparent border-none hover:bg-transparent text-4xl hover:text-5xl">
+                                    <FcGoogle />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
