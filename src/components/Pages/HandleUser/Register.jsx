@@ -1,17 +1,19 @@
 import { Helmet } from "react-helmet-async";
 import SwiperSlider from "../Shared/SwiperSlider";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import 'react-toastify/dist/ReactToastify.css';
 import { updateProfile } from "firebase/auth";
+import { FcGoogle } from "react-icons/fc";
 
 
 const Register = () => {
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, googlePopUpSignIn, loggedInUser } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleSignUp = e => {
         e.preventDefault();
@@ -35,9 +37,6 @@ const Register = () => {
             return;
         }
 
-        // const user = { name, photoUrl, email, password };
-        // console.log(user);
-
         //create new user
         createUser(email, password)
             .then(result => {
@@ -47,7 +46,7 @@ const Register = () => {
                     displayName: name, photoURL: photoUrl
                 }).then(result => {
                     setTimeout(() => {
-                        navigate("/");
+                        navigate(location?.state ? location.state : '/');
                     }, 1500)
                     console.log(result.user);
                 }).catch((error) => {
@@ -63,6 +62,29 @@ const Register = () => {
 
     }
 
+
+    const handleGoogleSignIn = () => {
+        if (loggedInUser) {
+            toast.error('Already logged in');
+        }
+        else {
+            //sign in user
+            googlePopUpSignIn()
+                .then(result => {
+                    toast('Signed In successfully!');
+
+                    //navigate after login
+                    setTimeout(() => {
+                        navigate(location?.state ? location.state : '/');
+                    }, 1500)
+                    console.log(result.user);
+                })
+                .catch(error => {
+                    toast.error(error.message);
+                    console.error(error);
+                })
+        }
+    }
 
     return (
         <div>
@@ -86,10 +108,19 @@ const Register = () => {
 
                 <div className="hero lg:w-3/5">
                     <div className="hero-content flex-col lg:flex-row w-full">
+
                         {/* registration form */}
                         <div className="card w-full  shadow-2xl shadow-primaryColor">
+                            <div className="flex justify-center items-center gap-3 my-5 text-2xl font-medium font-montserrat">
+                                Sign up with <button onClick={handleGoogleSignIn} className="btn btn-circle bg-transparent border-none hover:bg-transparent text-4xl hover:text-5xl">
+                                    <FcGoogle />
+                                </button>
+                            </div>
+
+                            <div className="divider divider-info">OR</div>
+
                             <div className="text-center mt-4">
-                                <h1 className="text-5xl font-bold">Sign Up</h1>
+                                <h1 className="text-5xl font-bold font-montserrat">Sign Up</h1>
                                 <p className="py-6">Create an account with us to manage and book your services easily</p>
                             </div>
 

@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import Lottie from 'react-lottie';
 import logInAnimation from "../../../assets/Animation/Animation.json";
@@ -11,7 +11,8 @@ import { ToastContainer, toast } from "react-toastify";
 const Login = () => {
     const { loggedInUser, signInUser, googlePopUpSignIn } = useContext(AuthContext);
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const location = useLocation();
 
     //animation controls
     const defaultOptions = {
@@ -98,13 +99,8 @@ const Login = () => {
                     <div className="hero-content flex-col lg:flex-row w-full">
                         {/* registration form */}
                         <div className="card w-full  shadow-2xl shadow-primaryColor">
-                            <div className="text-center mt-4 mb-4">
-                                <h1 className="text-5xl font-bold">Login</h1>
-                            </div>
-
-                            {/* <div className="divider divider-error"></div> */}
-
-                            <div className="flex justify-center items-center gap-3 mb-5 text-2xl">
+                           
+                            <div className="flex justify-center items-center gap-3 my-5 text-2xl font-medium font-montserrat">
                                 Login with <button onClick={handleGoogleSignIn} className="btn btn-circle bg-transparent border-none hover:bg-transparent text-4xl hover:text-5xl">
                                     <FcGoogle />
                                 </button>
@@ -112,6 +108,10 @@ const Login = () => {
 
                             <div className="divider divider-info m-0">OR</div>
 
+
+                             <div className="text-center mt-6 mb-4">
+                                <h1 className="text-5xl font-bold font-montserrat">Login</h1>
+                            </div>
 
                             {/* form starts here */}
                             <form onSubmit={handleLogin} className="card-body pt-0">

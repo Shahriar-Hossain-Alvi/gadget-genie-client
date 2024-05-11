@@ -16,21 +16,24 @@ const Navbar = () => {
     const navLinks = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/services'>Services</NavLink></li>
-        <li>
-            <details>
-                <summary className="hover:bg-secondaryColor">Dashboard</summary>
-                <ul className="p-2 bg-primaryColor">
-                    <li><NavLink to="/addService">Add Service</NavLink></li>
-                    <li><NavLink to="/manageService">Manage Service</NavLink></li>
-                    <li><NavLink to="/bookedService">Booked Service</NavLink></li>
-                    <li><NavLink to="/todoService">Service To-Do</NavLink></li>
-                </ul>
-            </details>
-        </li>
+        {
+            loggedInUser &&
+            <li>
+                <details>
+                    <summary className="hover:bg-secondaryColor">Dashboard</summary>
+                    <ul className="p-2 bg-primaryColor">
+                        <li><NavLink to="/addService">Add Service</NavLink></li>
+                        <li><NavLink to="/manageService">Manage Service</NavLink></li>
+                        <li><NavLink to="/bookedService">Booked Service</NavLink></li>
+                        <li><NavLink to="/todoService">Service To-Do</NavLink></li>
+                    </ul>
+                </details>
+            </li>
+        }
     </>
 
     return (
-        <div id="navbar" className="navbar bg-primaryColor">
+        <div id="navbar" className="relative z-50 navbar bg-primaryColor">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -53,7 +56,20 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     loggedInUser ?
-                        <div>
+                        <div className="flex justify-center items-center gap-1">
+                            <div className="dropdown dropdown-end">
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img alt="Tailwind CSS Navbar component" src={loggedInUser?.photoURL} />
+                                    </div>
+                                </div>
+                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content rounded-box w-52 text-center bg-primaryColor text-white space-y-2">
+                                    <li className="">
+                                        {loggedInUser?.displayName}
+                                    </li>
+                                    <li className=""><NavLink to="/userProfile">Profile</NavLink></li>
+                                </ul>
+                            </div>
                             <button onClick={handleLogout} className="btn">Logout</button>
                         </div>
                         :
