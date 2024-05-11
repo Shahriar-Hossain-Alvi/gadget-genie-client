@@ -9,6 +9,7 @@ import TodoService from "../Pages/TodoService"
 import Register from "../Pages/HandleUser/Register";
 import Login from "../Pages/HandleUser/Login";
 import ErrorPage from "../Layout/ErrorPage";
+import UserProfile from "../Pages/HandleUser/UserProfile";
 
 const router = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login></Login>
+            },
+            {
+                path: "/userProfile",
+                element: <UserProfile></UserProfile>
             }
         ]
     },

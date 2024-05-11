@@ -1,15 +1,17 @@
 import { Helmet } from "react-helmet-async";
 import SwiperSlider from "../Shared/SwiperSlider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import 'react-toastify/dist/ReactToastify.css';
+import { updateProfile } from "firebase/auth";
 
 
 const Register = () => {
 
     const { createUser } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleSignUp = e => {
         e.preventDefault();
@@ -33,17 +35,28 @@ const Register = () => {
             return;
         }
 
-        const user = { name, photoUrl, email, password };
-        console.log(user);
+        // const user = { name, photoUrl, email, password };
+        // console.log(user);
 
         //create new user
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
+                toast('Profile Created successfully!');
+                updateProfile(result.user, {
+                    displayName: name, photoURL: photoUrl
+                }).then(result => {
+                    setTimeout(() => {
+                        navigate("/");
+                    }, 1500)
+                    console.log(result.user);
+                }).catch((error) => {
+                    toast.error(error);
+                });
                 form.reset();
             })
             .catch(error => {
-                toast.error(error);
+                toast.error(error.message);
                 console.error(error);
             })
 

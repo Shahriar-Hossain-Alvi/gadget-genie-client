@@ -1,11 +1,17 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import Lottie from 'react-lottie';
 import logInAnimation from "../../../assets/Animation/Animation.json";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
 
 
 const Login = () => {
+    const { loggedInUser, signInUser, googlePopUpSignIn } = useContext(AuthContext);
+
+    const navigate = useNavigate()
 
     //animation controls
     const defaultOptions = {
@@ -24,10 +30,51 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        const user = { email, password };
-        console.log(user);
+        // const user = { email, password };
+        // console.log(user);
 
-        form.reset();
+        if (loggedInUser) {
+            toast.error('Already logged in');
+        }
+        else {
+            //sign in user
+            signInUser(email, password)
+                .then(() => {
+                    toast('Signed In successfully!');
+
+                    //navigate after login
+                    setTimeout(() => {
+                        navigate(location?.state ? location.state : '/');
+                    }, 2500)
+                    form.reset();
+                })
+                .catch(error => {
+                    toast.error(error.message);
+                });
+        }
+    }
+
+    const handleGoogleSignIn = () =>{
+        if (loggedInUser) {
+            toast.error('Already logged in');
+        }
+        else {
+            //sign in user
+            googlePopUpSignIn()
+                .then(result => {
+                    toast('Signed In successfully!');
+
+                    //navigate after login
+                    setTimeout(() => {
+                        navigate(location?.state ? location.state : '/');
+                    }, 1500)
+                    console.log(result.user);
+                })
+                .catch(error => {
+                    toast.error(error.message);
+                    console.error(error);
+                })
+        }
     }
 
     return (
@@ -35,7 +82,7 @@ const Login = () => {
             <Helmet>
                 <title>Login | Gadget Genie</title>
             </Helmet>
-
+            <ToastContainer></ToastContainer>
 
             <div className="my-8 flex flex-col lg:flex-row items-center justify-center">
                 <div className="lg:w-2/5 mb-8 lg:mb-0">
@@ -58,7 +105,7 @@ const Login = () => {
                             {/* <div className="divider divider-error"></div> */}
 
                             <div className="flex justify-center items-center gap-3 mb-5 text-2xl">
-                                Login with <button className="btn btn-circle bg-transparent border-none hover:bg-transparent text-4xl hover:text-5xl">
+                                Login with <button onClick={handleGoogleSignIn} className="btn btn-circle bg-transparent border-none hover:bg-transparent text-4xl hover:text-5xl">
                                     <FcGoogle />
                                 </button>
                             </div>
