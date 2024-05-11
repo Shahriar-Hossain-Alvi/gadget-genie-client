@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import Lottie from 'react-lottie';
-import logInAnimation from "../../../assets/Animation/Animation - 1715428069401.json";
+import logInAnimation from "../../../assets/Animation/Animation.json";
 
 
 const Login = () => {
@@ -26,6 +26,8 @@ const Login = () => {
 
         const user = { email, password };
         console.log(user);
+
+        form.reset();
     }
 
     return (
@@ -45,19 +47,27 @@ const Login = () => {
                 </div>
 
 
-                {/* login form */}
                 <div className="hero lg:w-3/5">
                     <div className="hero-content flex-col lg:flex-row w-full">
                         {/* registration form */}
                         <div className="card w-full  shadow-2xl shadow-primaryColor">
-                            <div className="text-center mt-4">
+                            <div className="text-center mt-4 mb-4">
                                 <h1 className="text-5xl font-bold">Login</h1>
-                                <p className="py-6">Login with your existing account or <Link className="text-red-600 hover:underline" to="/register">Register</Link></p>
                             </div>
+
+                            {/* <div className="divider divider-error"></div> */}
+
+                            <div className="flex justify-center items-center gap-3 mb-5 text-2xl">
+                                Login with <button className="btn btn-circle bg-transparent border-none hover:bg-transparent text-4xl hover:text-5xl">
+                                    <FcGoogle />
+                                </button>
+                            </div>
+
+                            <div className="divider divider-info m-0">OR</div>
 
 
                             {/* form starts here */}
-                            <form onSubmit={handleLogin} className="card-body">
+                            <form onSubmit={handleLogin} className="card-body pt-0">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
@@ -78,12 +88,9 @@ const Login = () => {
                                 </div>
                             </form>
 
-                            <div className="divider divider-info">OR</div>
-
-                            <div className="flex justify-center my-7 items-center gap-3">
-                                Login with <button className="btn btn-circle bg-transparent border-none hover:bg-transparent text-4xl hover:text-5xl">
-                                    <FcGoogle />
-                                </button>
+                            <div>
+                                {/* eslint-disable-next-line react/no-unescaped-entities */}
+                                <p className="mb-4 text-center">Don't have an account? <Link className="text-red-600 hover:underline" to="/register">Register</Link></p>
                             </div>
                         </div>
                     </div>
