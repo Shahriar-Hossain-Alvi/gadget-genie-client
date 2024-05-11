@@ -1,8 +1,19 @@
+import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 
 
 const Home = () => {
+    const { loading } = useContext(AuthContext);
+
+    if (loading) {
+        return <div className="flex justify-center mt-40">
+            <span className="loading loading-spinner text-primaryColor"></span>
+        </div>
+    }
+
+
     return (
         <div>
             <Helmet>

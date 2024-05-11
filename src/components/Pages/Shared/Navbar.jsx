@@ -4,13 +4,11 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Navbar = () => {
-    const { loggedInUser, logout } = useContext(AuthContext);
+    const { loggedInUser, logout, loading } = useContext(AuthContext);
 
     const handleLogout = () => {
         logout();
     }
-
-
 
 
     const navLinks = <>
@@ -53,36 +51,45 @@ const Navbar = () => {
                     {navLinks}
                 </ul>
             </div>
-            <div className="navbar-end">
-                {
-                    loggedInUser ?
-                        <div className="flex justify-center items-center gap-1">
-                            <div className="dropdown dropdown-end">
-                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                    <div className="w-10 rounded-full">
-                                        <img alt="Tailwind CSS Navbar component" src={loggedInUser?.photoURL} />
+
+            {
+                loading ?
+                    <div className="navbar-end">
+                        <span className="loading loading-spinner text-white"></span>
+                    </div>
+                    :
+                    <div className="navbar-end">
+                        {
+                            loggedInUser ?
+                                <div className="flex justify-center items-center gap-1">
+                                    <div className="dropdown dropdown-end">
+                                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                            <div className="w-10 rounded-full">
+                                                <img alt="Tailwind CSS Navbar component" src={loggedInUser?.photoURL} />
+                                            </div>
+                                        </div>
+                                        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content rounded-box w-52 text-center bg-primaryColor text-white space-y-2">
+                                            <li className="">
+                                                {loggedInUser?.displayName}
+                                            </li>
+                                            <li className=""><NavLink to="/userProfile">Profile</NavLink></li>
+                                        </ul>
                                     </div>
+                                    <button onClick={handleLogout} className="btn">Logout</button>
                                 </div>
-                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content rounded-box w-52 text-center bg-primaryColor text-white space-y-2">
-                                    <li className="">
-                                        {loggedInUser?.displayName}
-                                    </li>
-                                    <li className=""><NavLink to="/userProfile">Profile</NavLink></li>
-                                </ul>
-                            </div>
-                            <button onClick={handleLogout} className="btn">Logout</button>
-                        </div>
-                        :
-                        <div>
-                            <Link to='/login'>
-                                <button className="btn">Login</button>
-                            </Link>
-                        </div>
-                }
+                                :
+                                <div>
+                                    <Link to='/login'>
+                                        <button className="btn">Login</button>
+                                    </Link>
+                                </div>
+                        }
 
 
 
-            </div>
+                    </div>
+            }
+
         </div>
     );
 };

@@ -2,8 +2,6 @@ import PropTypes from 'prop-types';
 import { useContext } from "react"
 import { AuthContext } from "../Providers/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
-import loadingAnimation from "../../assets/Animation/loading.json";
-import Lottie from 'react-lottie';
 
 const PrivateRoute = ({ children }) => {
 
@@ -12,11 +10,7 @@ const PrivateRoute = ({ children }) => {
 
     if (loading) {
         return <div className="flex justify-center mt-40">
-            <Lottie
-                options={loadingAnimation}
-                height={400}
-                width={400}
-            />
+            <span className="loading loading-spinner text-primaryColor"></span>
         </div>
     }
 
