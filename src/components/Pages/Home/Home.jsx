@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../Providers/AuthProvider";
 import FaqSlider from "./FaqSlider";
 import Banner from "./Banner"
+import PopularServices from "./PopularServices";
 
 
 
@@ -25,7 +26,7 @@ const Home = () => {
             </Helmet>
 
             <div>
-                <div className="mt-4 grid grid-cols-2 gap-5">
+                <div className="my-4 grid grid-cols-2 gap-5">
                     <div className="flex flex-col justify-center">
                         <h2 className="font-bold font-montserrat text-5xl">Don't Trash It, Fix It! <span className="text-thirdColor italic underline">Gadget Genie</span> to the Rescue!</h2>
                         <p className="text-xl mt-3 font-medium">We breathe new life into your electronics. Expert repairs, affordable prices.</p>
@@ -33,7 +34,10 @@ const Home = () => {
                     <Banner></Banner>
                 </div>
 
-                <h2 className="text-5xl text-primaryColor">This is popular services</h2>
+                <div className="my-4">
+                    <h2 className="text-3xl font-bold text-center font-montserrat">Popular Services</h2>
+                    <PopularServices></PopularServices>
+                </div>
 
                 <div>
                     <h2 className="text-3xl font-bold text-center font-montserrat">FAQ</h2>
