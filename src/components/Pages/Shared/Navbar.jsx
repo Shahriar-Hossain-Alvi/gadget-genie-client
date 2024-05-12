@@ -41,9 +41,11 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <div className="flex btn btn-ghost items-center">
-                    <img className="w-12 h-12 rounded-full" src={navLogo} alt="" />
-                    <a className="text-xl text-white font-montserrat">Gadget Genie</a>
+                <div className="btn btn-ghost items-center">
+                    <Link to="/" className="flex items-center text-xl text-white font-montserrat">
+                        <img className="w-12 h-12 rounded-full" src={navLogo} alt="" />
+                        Gadget Genie
+                    </Link>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">

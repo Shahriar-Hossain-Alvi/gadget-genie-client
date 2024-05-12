@@ -11,6 +11,7 @@ import Login from "../Pages/HandleUser/Login";
 import ErrorPage from "../Layout/ErrorPage";
 import UserProfile from "../Pages/HandleUser/UserProfile";
 import PrivateRoute from "./PrivateRoute";
+import AllFaq from "../Pages/Home/AllFaq";
 
 const router = createBrowserRouter([
     {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
             {
                 path: "/userProfile",
                 element: <UserProfile></UserProfile>
+            },
+            {
+                path: "/allfaq",
+                element: <AllFaq></AllFaq>
             }
         ]
     },
