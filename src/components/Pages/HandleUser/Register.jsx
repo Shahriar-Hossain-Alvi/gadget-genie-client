@@ -46,7 +46,7 @@ const Register = () => {
                     displayName: name, photoURL: photoUrl
                 }).then(result => {
                     setTimeout(() => {
-                        navigate(location?.state ? location.state : '/');
+                        navigate(location?.state ? location.state : '/userProfile');
                     }, 1500)
                     console.log(result.user);
                 }).catch((error) => {

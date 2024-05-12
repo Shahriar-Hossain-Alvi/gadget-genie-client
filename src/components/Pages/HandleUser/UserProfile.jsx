@@ -17,8 +17,8 @@ const UserProfile = () => {
             <h2 className="text-5xl font-montserrat font-bold mb-16">Profile</h2>
 
             <div className="border p-10 rounded-2xl shadow-2xl shadow-thirdColor relative max-w-xl mx-auto">
-                <div className="absolute -top-9 left-1/2 -translate-x-1/2 w-20 h-20">
-                    <img className="rounded-full w-full
+                <div className="absolute -top-9 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full">
+                    <img className="rounded-full w-20 h-20
                     " src={loggedInUser?.photoURL} alt="" />
                 </div>
 

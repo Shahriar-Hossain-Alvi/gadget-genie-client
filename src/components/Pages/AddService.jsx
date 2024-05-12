@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../Providers/AuthProvider";
+import Swal from 'sweetalert2';
 
 
 const AddService = () => {
@@ -18,11 +19,33 @@ const AddService = () => {
         const providerName = loggedInUser?.displayName;
         const providerImage = loggedInUser?.photoURL;
 
-        const serviceDetails = {
+        const newService = {
             imgURL, serviceArea, serviceName, price, description, providerEmail, providerImage, providerName
         }
+        // console.log(newService);
 
-        console.log(serviceDetails);
+        //send data to server
+        fetch('http://localhost:5000/service',{
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newService)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                // sweet alert
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Your item is added to the database successfully',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    })
+                }
+                form.reset();
+            })
 
     }
 
