@@ -58,7 +58,7 @@ const router = createBrowserRouter([
             {
                 path: "/allfaq",
                 element: <AllFaq></AllFaq>
-            }
+            },
         ]
     },
 ]);
