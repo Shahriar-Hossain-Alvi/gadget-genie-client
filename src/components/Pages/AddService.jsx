@@ -54,7 +54,7 @@ const AddService = () => {
                 <title>Add Service | Gadget Genie</title>
             </Helmet>
             <div>
-                <h2 className="text-center text-3xl font-bold font-montserrat mt-5">Add Service</h2>
+                <h2 className="text-center text-4xl font-bold font-montserrat underline mt-5">Add Service</h2>
                 <p className="text-center mt-2 font-medium text-lg text-secondaryColor">Use the form to add a new service</p>
 
                 <div className="hero">

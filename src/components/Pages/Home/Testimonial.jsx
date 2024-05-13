@@ -55,7 +55,7 @@ const Testimonial = () => {
 
                     {/* user details */}
                     <div className="flex flex-col items-center space-y-2">
-                        <p className="text-lg font-medium italic">I realized after I sent in my order that I had ordered a larger quantity than I needed. I emailed and received a quick response, adjustment to my order and a refund. Product was shipped out in a timely manner. Clay & Co. is great!</p>
+                        <p className="text-lg font-medium italic">I realized after I sent in my order that I had ordered a larger quantity than I needed. I emailed and received a quick response, adjustment to my order and a refund. Product was shipped out in a timely manner. Gadget Genie is great!</p>
 
                         <h2 className="font-rubic font-bold text-xl">Alex Albert Belle</h2>
 
@@ -78,7 +78,7 @@ const Testimonial = () => {
 
                     {/* user details */}
                     <div className="flex flex-col items-center space-y-2">
-                        <p className="text-lg font-medium italic">The culture is the best at Clay & Co. You can tell that they truly care about the happiness of their employees. It is a really relaxed and calm environment and their quality of product is always best. I refer them for the future.</p>
+                        <p className="text-lg font-medium italic">The culture is the best at Gadget Genie You can tell that they truly care about the happiness of their employees. It is a really relaxed and calm environment and their quality of product is always best. I refer them for the future.</p>
 
                         <h2 className="font-rubic font-bold text-xl">Michal Wincent</h2>
 

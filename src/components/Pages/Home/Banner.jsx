@@ -12,6 +12,7 @@ import "slick-carousel/slick/slick-theme.css";
 const Banner = () => {
     var settings = {
         dots: false,
+        arrows: false,
         infinite: true,
         autoplay: true,
         autoplaySpeed: 3000,

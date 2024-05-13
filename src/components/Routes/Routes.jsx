@@ -3,7 +3,7 @@ import Root from "../Layout/Root";
 import Home from "../Pages/Home/Home";
 import Services from "../Pages/Services/Services";
 import AddService from "../Pages/AddService"
-import ManageService from "../Pages/ManageService";
+import ManageService from "../Pages/ManageService/ManageService";
 import BookedService from "../Pages/BookedService";
 import TodoService from "../Pages/TodoService"
 import Register from "../Pages/HandleUser/Register";
@@ -27,8 +27,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/services",
-                element: <Services></Services>,
-                loader: () => fetch('https://gadget-genie-server.vercel.app/services')
+                element: <Services></Services>
             },
             {
                 path: "/servicedetails/:id",
