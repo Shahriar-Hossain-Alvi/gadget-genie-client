@@ -7,6 +7,7 @@ import Banner from "./Banner"
 import PopularServices from "./PopularServices/PopularServices";
 import { Link } from "react-router-dom";
 import DevicesFixed from "./DevicesFixed";
+import Testimonial from "./Testimonial";
 
 
 
@@ -58,6 +59,11 @@ const Home = () => {
                 <div>
                     <h2 className="text-3xl font-bold text-center font-montserrat">FAQ</h2>
                     <FaqSlider></FaqSlider>
+                </div>
+
+                {/* testimonial */}
+                <div>
+                    <Testimonial></Testimonial>
                 </div>
             </div>
         </div>
