@@ -27,8 +27,8 @@ const PopularServicesCard = ({ service }) => {
                     </div>
                 </div>
                 <div>
-                    <Link to={`/services/${_id}`}>
-                        <button className="btn bg-thirdColor text-white hover:bg-primaryColor btn-">View Detail</button>
+                    <Link to={`/servicedetails/${_id}`}>
+                        <button className="btn bg-thirdColor text-white hover:bg-primaryColor">View Detail</button>
                     </Link>
                 </div>
             </div>

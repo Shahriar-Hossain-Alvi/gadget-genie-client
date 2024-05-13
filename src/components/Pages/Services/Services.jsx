@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import ServiceCard from "./ServiceCard";
+import { Fade } from "react-awesome-reveal";
 
 const Services = () => {
     const services = useLoaderData();
@@ -16,9 +17,11 @@ const Services = () => {
 
 
                 <div className=" space-y-4">
-                    {
-                        services.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)
-                    }
+                    <Fade>
+                        {
+                            services.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)
+                        }
+                    </Fade>
                 </div>
             </div>
         </div>

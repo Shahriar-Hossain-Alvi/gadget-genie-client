@@ -13,7 +13,7 @@ const ServiceCard = ({ service }) => {
                     <div></div>
 
                     <div className='space-y-4'>
-                        <h2 className='font-bold font-montserrat text-2xl'>{serviceName}</h2>
+                        <h2 className='font-bold font-montserrat text-4xl'>{serviceName}</h2>
                         <p className='text-secondaryColor'>{description.slice(0, 100)}...</p>
                     </div>
 
@@ -43,7 +43,7 @@ const ServiceCard = ({ service }) => {
                         </p>
                         <span className='font-montserrat text-2xl italic text-thirdColor font-bold'>{serviceArea}</span>
                     </div>
-                    <Link to={`/services/${_id}`}>
+                    <Link to={`/servicedetails/${_id}`}>
                         <button className="btn bg-thirdColor text-white hover:bg-primaryColor btn-lg">View Detail</button>
                     </Link>
                 </div>

@@ -22,10 +22,9 @@ const AddService = () => {
         const newService = {
             imgURL, serviceArea, serviceName, price, description, providerEmail, providerImage, providerName
         }
-        // console.log(newService);
 
         //send data to server
-        fetch('http://localhost:5000/service',{
+        fetch('https://gadget-genie-server.vercel.app/services',{
             method: "POST",
             headers: {
                 'content-type': 'application/json'

@@ -12,6 +12,8 @@ import ErrorPage from "../Layout/ErrorPage";
 import UserProfile from "../Pages/HandleUser/UserProfile";
 import PrivateRoute from "./PrivateRoute";
 import AllFaq from "../Pages/Home/AllFaq";
+import ServiceDetails from "../Pages/Services/ServiceDetails";
+import BookService from "../Pages/Services/BookService";
 
 const router = createBrowserRouter([
     {
@@ -26,7 +28,17 @@ const router = createBrowserRouter([
             {
                 path: "/services",
                 element: <Services></Services>,
-                loader: ()=>fetch('https://gadget-genie-server.vercel.app/services')
+                loader: () => fetch('https://gadget-genie-server.vercel.app/services')
+            },
+            {
+                path: "/servicedetails/:id",
+                element: <ServiceDetails></ServiceDetails>,
+                loader: ({ params }) => fetch(`https://gadget-genie-server.vercel.app/services/${params.id}`)
+            },
+            {
+                path: '/bookservice/:id',
+                element: <BookService></BookService>,
+                loader: ({ params }) => fetch(`https://gadget-genie-server.vercel.app/services/${params.id}`)
             },
             {
                 path: "/addService",

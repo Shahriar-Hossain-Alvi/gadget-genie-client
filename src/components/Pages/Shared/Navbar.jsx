@@ -4,6 +4,26 @@ import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Navbar = () => {
+
+    window.addEventListener('scroll', function () {
+        const navbar = document.getElementById('navbar');
+        // const content = document.getElementById('content');
+        const navbarHeight = navbar.offsetHeight;
+        const scrollPosition = window.scrollY;
+
+        if (scrollPosition > navbarHeight) {
+            navbar.classList.add('fixed', 'top-0');
+            navbar.classList.remove('relative');
+            // content.style.paddingTop = navbarHeight + 'px'; 
+            // Adjust content padding when navbar becomes fixed
+        } else {
+            navbar.classList.remove('fixed', 'top-0');
+            navbar.classList.add('relative');
+            // content.style.paddingTop = '0';
+        }
+    });
+
+
     const { loggedInUser, logout, loading } = useContext(AuthContext);
 
     const handleLogout = () => {
