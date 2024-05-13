@@ -6,7 +6,7 @@ const PopularServices = () => {
     const [firstSixServices, setFirstSixServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/firstsixservices')
+        fetch('https://gadget-genie-server.vercel.app/firstsixservices')
             .then(res => res.json())
             .then(data => {
                 // console.log(data);

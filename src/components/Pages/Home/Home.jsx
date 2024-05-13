@@ -5,6 +5,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import FaqSlider from "./FaqSlider";
 import Banner from "./Banner"
 import PopularServices from "./PopularServices/PopularServices";
+import { Link } from "react-router-dom";
 
 
 
@@ -40,7 +41,9 @@ const Home = () => {
                     <PopularServices></PopularServices>
 
                     <div className="text-center mt-6">
-                        <button className="btn bg-thirdColor text-white hover:bg-primaryColor">Show All</button>
+                        <Link to='/services'>
+                            <button className="btn bg-thirdColor text-white hover:bg-primaryColor btn-wide text-lg">Show All</button>
+                        </Link>
                     </div>
                 </div>
 

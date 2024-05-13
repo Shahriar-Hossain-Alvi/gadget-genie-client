@@ -8,7 +8,7 @@ const PopularServicesCard = ({ service }) => {
             <div className='grid grid-cols-2 gap-3 mb-4'>
                 <div className='flex flex-col justify-center space-y-3'>
                     <h2 className='font-bold font-montserrat text-2xl'>{serviceName}</h2>
-                    <p className='text-secondaryColor'>{description.slice(0, 200)}...</p>
+                    <p className='text-secondaryColor'>{description.slice(0, 100)}...</p>
                     <p className='font-medium'>Starts From: <span className='font-montserrat text-2xl italic text-thirdColor font-bold'>${price}</span></p>
                 </div>
                 <div>
@@ -28,7 +28,7 @@ const PopularServicesCard = ({ service }) => {
                 </div>
                 <div>
                     <Link to={`/services/${_id}`}>
-                        <button className="btn bg-thirdColor text-white hover:bg-primaryColor">View Detail</button>
+                        <button className="btn bg-thirdColor text-white hover:bg-primaryColor btn-">View Detail</button>
                     </Link>
                 </div>
             </div>

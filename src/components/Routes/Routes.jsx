@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../Layout/Root";
 import Home from "../Pages/Home/Home";
-import Services from "../Pages/Services";
+import Services from "../Pages/Services/Services";
 import AddService from "../Pages/AddService"
 import ManageService from "../Pages/ManageService";
 import BookedService from "../Pages/BookedService";
@@ -25,7 +25,8 @@ const router = createBrowserRouter([
             },
             {
                 path: "/services",
-                element: <Services></Services>
+                element: <Services></Services>,
+                loader: ()=>fetch('https://gadget-genie-server.vercel.app/services')
             },
             {
                 path: "/addService",
