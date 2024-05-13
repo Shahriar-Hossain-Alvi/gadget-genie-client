@@ -32,12 +32,12 @@ const router = createBrowserRouter([
             },
             {
                 path: "/servicedetails/:id",
-                element: <ServiceDetails></ServiceDetails>,
+                element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://gadget-genie-server.vercel.app/services/${params.id}`)
             },
             {
                 path: '/bookservice/:id',
-                element: <BookService></BookService>,
+                element: <PrivateRoute><BookService></BookService></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://gadget-genie-server.vercel.app/services/${params.id}`)
             },
             {
@@ -66,7 +66,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/userProfile",
-                element: <UserProfile></UserProfile>
+                element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>
             },
             {
                 path: "/allfaq",

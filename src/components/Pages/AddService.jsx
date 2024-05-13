@@ -23,7 +23,7 @@ const AddService = () => {
             imgURL, serviceArea, serviceName, price, description, providerEmail, providerImage, providerName
         }
 
-        //send data to server
+        //send services data to server
         fetch('https://gadget-genie-server.vercel.app/services',{
             method: "POST",
             headers: {

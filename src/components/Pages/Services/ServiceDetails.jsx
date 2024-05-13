@@ -1,4 +1,4 @@
-
+import Swal from 'sweetalert2';
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
@@ -11,8 +11,55 @@ const ServiceDetails = () => {
 
     const { providerEmail, providerImage, providerName, serviceName, _id, imgURL, description, price, serviceArea } = service;
 
-    const handleBooking = () => {
+    const handleBooking = e => {
+        e.preventDefault();
         console.log('clicked booking btn');
+
+        const form = e.target;
+        const serviceId = form.serviceId.value;
+        const serviceName = form.serviceName.value;
+        const imgURL = form.imgURL.value;
+        const price = form.price.value;
+        const providerEmail = form.providerEmail.value;
+        const providerName = form.providerName.value;
+        const serviceDate = form.serviceDate.value;
+        const instruction = form.instruction.value;
+        const bookedUserName = loggedInUser.displayName;
+        const bookedUserEmail = loggedInUser.email;
+        // const status = 'pending';
+        // console.log(serviceId);
+
+
+        const newBooking = {
+            serviceId, serviceName, imgURL, price, providerEmail, providerName, serviceDate, instruction, bookedUserName, bookedUserEmail,
+            status: 'pending'
+        }
+        // console.log(newBooking);
+        // form.reset();
+
+
+        //send booking data to the server
+        fetch('https://gadget-genie-server.vercel.app/bookings', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newBooking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                // sweet alert
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Booking Successful',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    })
+                }
+                form.reset();
+            })
     }
 
     return (
@@ -20,6 +67,8 @@ const ServiceDetails = () => {
             <Helmet>
                 <title>Service Details || Gadget Genie</title>
             </Helmet>
+
+
             {/* provider details */}
             <div className="mb-6 border rounded-2xl border-secondaryColor max-w-lg py-4 mx-auto">
                 <h2 className="text-center font-medium text-2xl">Details of Service Provider</h2>
@@ -58,9 +107,11 @@ const ServiceDetails = () => {
             <dialog id="my_modal_1" className="modal">
                 <div className="modal-box">
                     <h3 className="font-bold text-center text-2xl text-thirdColor underline font-montserrat">Book Now!</h3>
-                    <p className="py-4">Press ESC key or click the button below to close</p>
-                    <div className="modal-action">
-                        <form method="dialog">
+                    <p className="py-4 text-center">Press <span className="text-red-500">ESC</span> key or click the <span className="text-red-500">Close </span> button below to close</p>
+
+                    {/* form */}
+                    <div>
+                        <form onSubmit={handleBooking}>
                             {/* service id and name */}
                             <div className="grid grid-cols-2 gap-5">
                                 <div className="form-control">
@@ -81,13 +132,24 @@ const ServiceDetails = () => {
 
 
 
-                            {/* service img and provider email */}
+                            {/* service img  */}
                             <div className="grid grid-cols-2 gap-5">
-                                <div className="form-control">
+                                <div className="form-control col-span-2">
                                     <label className="label">
                                         <span className="label-text">Service Image</span>
                                     </label>
                                     <input name="imgURL" type="text" defaultValue={imgURL} placeholder="Enter the price of the service" className="input input-bordered" required readOnly />
+                                </div>
+                            </div>
+
+
+                            {/* provider name and email */}
+                            <div className="grid grid-cols-2 gap-5">
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Provider Name</span>
+                                    </label>
+                                    <input name="providerName" type="text" defaultValue={providerName} placeholder="Current user email" className="input input-bordered" required readOnly />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -97,7 +159,6 @@ const ServiceDetails = () => {
                                         defaultValue={providerEmail} className="input input-bordered" required readOnly />
                                 </div>
                             </div>
-
 
 
                             {/* current user email and name */}
@@ -124,7 +185,7 @@ const ServiceDetails = () => {
                                     <label className="label">
                                         <span className="label-text">Pick a date for servicing</span>
                                     </label>
-                                    <input  name="serviceDate" type="date" className="input input-bordered" />
+                                    <input name="serviceDate" type="date" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -146,10 +207,16 @@ const ServiceDetails = () => {
                             </div>
 
                             <div className="flex justify-center items-center mt-5 gap-5">
-                                <button onClick={handleBooking} className="btn bg-thirdColor text-white hover:bg-primaryColor">Purchase</button>
-
-                                <button className="btn btn-error text-white">Close</button>
+                                <input className="btn bg-thirdColor text-white hover:bg-primaryColor" type="submit" value="Purchase" />
                             </div>
+                        </form>
+                    </div>
+
+
+                    {/* modal close */}
+                    <div className="modal-action flex justify-center">
+                        <form method="dialog">
+                            <button className="btn btn-error text-white">Close</button>
                         </form>
                     </div>
                 </div>
