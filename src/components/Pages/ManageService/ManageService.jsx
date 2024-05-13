@@ -26,6 +26,14 @@ const ManageService = () => {
         </div>
     }
 
+    const handleEdit = id => {
+        console.log('clicked', id);
+    }
+
+    const handleDelete = id => {
+        console.log('clicked', id);
+    }
+
     return (
         <div>
             <Helmet>
@@ -36,7 +44,12 @@ const ManageService = () => {
 
             <div className="space-y-5">
                 {
-                    myAddedServices.map(mySingleService => <ManageServiceCard key={mySingleService._id} mySingleService={mySingleService}></ManageServiceCard>)
+                    myAddedServices.map(mySingleService => <ManageServiceCard
+                        key={mySingleService._id} 
+                        mySingleService={mySingleService} 
+                        handleEdit={handleEdit} 
+                        handleDelete={handleDelete}
+                    ></ManageServiceCard>)
                 }
             </div>
         </div>

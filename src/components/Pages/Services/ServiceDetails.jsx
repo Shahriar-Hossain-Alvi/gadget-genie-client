@@ -26,16 +26,12 @@ const ServiceDetails = () => {
         const instruction = form.instruction.value;
         const bookedUserName = loggedInUser.displayName;
         const bookedUserEmail = loggedInUser.email;
-        // const status = 'pending';
-        // console.log(serviceId);
 
 
         const newBooking = {
             serviceId, serviceName, imgURL, price, providerEmail, providerName, serviceDate, instruction, bookedUserName, bookedUserEmail,
             status: 'pending'
         }
-        // console.log(newBooking);
-        // form.reset();
 
 
         //send booking data to the server

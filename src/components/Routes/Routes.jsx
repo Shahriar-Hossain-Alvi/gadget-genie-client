@@ -13,7 +13,7 @@ import UserProfile from "../Pages/HandleUser/UserProfile";
 import PrivateRoute from "./PrivateRoute";
 import AllFaq from "../Pages/Home/AllFaq";
 import ServiceDetails from "../Pages/Services/ServiceDetails";
-import BookService from "../Pages/Services/BookService";
+import EditDetails from "../Pages/ManageService/EditDetails";
 
 const router = createBrowserRouter([
     {
@@ -32,11 +32,6 @@ const router = createBrowserRouter([
             {
                 path: "/servicedetails/:id",
                 element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://gadget-genie-server.vercel.app/services/${params.id}`)
-            },
-            {
-                path: '/bookservice/:id',
-                element: <PrivateRoute><BookService></BookService></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://gadget-genie-server.vercel.app/services/${params.id}`)
             },
             {
@@ -71,6 +66,11 @@ const router = createBrowserRouter([
                 path: "/allfaq",
                 element: <AllFaq></AllFaq>
             },
+            {
+                path: '/editDetails/:id',
+                element: <EditDetails></EditDetails>,
+                loader: ({ params }) => fetch(`https://gadget-genie-server.vercel.app/services/${params.id}`)
+            }
         ]
     },
 ]);
