@@ -66,10 +66,10 @@ const ServiceDetails = () => {
 
 
             {/* provider details */}
-            <div className="mb-6 border rounded-2xl border-secondaryColor max-w-xl py-4 mx-auto">
+            <div className="mb-6 border rounded-2xl border-secondaryColor max-w-xs md:max-w-xl lg:max-w-lg py-4 mx-auto">
                 <h2 className="text-center font-medium text-2xl">Details of Service Provider</h2>
                 <div className="flex gap-5 items-center justify-center">
-                    <img className="w-28 h-28 rounded-full" src={providerImage} alt="" />
+                    <img className="w-16 h-16 md:w-28 lg:w-28 md:h-28 lg:h-28 rounded-full" src={providerImage} alt="" />
                     <div>
                         <h2 className="text-3xl font-bold font-montserrat mb-1">{providerName}</h2>
                         <h4 className="text-xl font-medium text-secondaryColor">{providerEmail}</h4>
@@ -80,8 +80,8 @@ const ServiceDetails = () => {
 
             <h2 className="text-4xl font-bold text-primaryColor text-center mb-5 mt-8">Service Details</h2>
 
-            {/* single service setion */}
-            <div className="grid grid-cols-2 items-center mb-8 gap-5">
+            {/* single service section */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center mb-8 gap-5 mx-2 lg:mx-0">
                 <div>
                     <img className="w-full h-80 rounded-2xl" src={imgURL} alt="" />
                 </div>
