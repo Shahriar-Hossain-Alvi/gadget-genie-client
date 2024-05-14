@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -57,6 +58,9 @@ const EditDetails = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Edit Details || Gadget Genie</title>
+            </Helmet>
             <h2 className="text-3xl text-center font-bold mt-5 font-montserrat underline">Edit and Update Service Info</h2>
 
             <div className="my-10 max-w-xs md:max-w-2xl mx-auto lg:max-w-6xl">

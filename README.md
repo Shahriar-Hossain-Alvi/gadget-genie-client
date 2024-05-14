@@ -1,8 +1,29 @@
-# React + Vite
+# Gadget Genie
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Live link: https://gadget-genie-3f9f7.web.app/
+- Live link 2: https://gadget-genie-3f9f7.firebaseapp.com/
 
-Currently, two official plugins are available:
+# Category: Electronic Item Repairing Services
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- **Navigation:** Navigate Easily from page to page with the help of react router
+
+- **Slider:** A banner with the images of various services with a slider
+
+- **Register Option:** Sign up easily using your *Email* and *Password*. You can also add your *Name* and *Profile Picture* 
+
+- **Login Option:** Multiple login option for all types of user. *Email-password*, *Google*
+
+- **Services:** You can see all our services in this page
+
+- **Add Service:** You can add more services to the website using a form in this page
+
+- **Database Access:** You can add products in the MongoDB database from the "Add Craft page" using a form easily.
+
+- **Manage Service:** You can *Edit*, *Update* and *Delete* your services with a few clicks
+
+- **Booked Service:** You can see which services you have booked or purchased
+
+- **Responsiveness:** Responsive design for *mobile*, *tablet* and *pc*
+
+- **Footer:** Eye catching footer with quick links and social account links

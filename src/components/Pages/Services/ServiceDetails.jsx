@@ -13,7 +13,7 @@ const ServiceDetails = () => {
 
     const handleBooking = e => {
         e.preventDefault();
-        console.log('clicked booking btn');
+        // console.log('clicked booking btn');
 
         const form = e.target;
         const serviceId = form.serviceId.value;
