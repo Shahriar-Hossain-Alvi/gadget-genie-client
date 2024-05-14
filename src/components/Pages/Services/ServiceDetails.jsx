@@ -78,7 +78,7 @@ const ServiceDetails = () => {
                 <h2 className="text-center mt-5 text-2xl font-semibold ">Service Area: {serviceArea}</h2>
             </div>
 
-            <h2 className="text-4xl font-bold text-primaryColor text-center mb-5 mt-8">Service Details</h2>
+            <h2 className="text-4xl font-bold text-center mb-5 mt-8">Service Details</h2>
 
             {/* single service section */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center mb-8 gap-5 mx-2 lg:mx-0">

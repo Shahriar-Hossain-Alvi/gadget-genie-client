@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-import wave from "../../../assets/wave.svg";
 import wave2 from "../../../assets/wave2.svg";
 import { Helmet } from "react-helmet-async";
 
@@ -37,11 +36,6 @@ const UserProfile = () => {
                     <h4 className="bg-gradient-to-b from-thirdColor to-primaryColor font-medium text-lg bg-clip-text text-transparent">Profile Created: {loggedInUser?.metadata.creationTime}</h4>
 
                     <h4 className="bg-gradient-to-b from-thirdColor to-primaryColor font-medium text-lg bg-clip-text text-transparent">Last Login: {loggedInUser?.metadata.lastSignInTime}</h4>
-                </div>
-
-
-                <div className="absolute left-0 bottom-0 w-full -z-30 rounded-b-2xl">
-                    <img className="rounded-b-2xl" src={wave} alt="" />
                 </div>
             </div>
         </div>
