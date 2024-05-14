@@ -92,14 +92,14 @@ const Register = () => {
                 <title>Register | Gadget Genie</title>
             </Helmet>
 
-            <div className="flex flex-col-reverse lg:flex-row justify-between gap-6 my-10">
+            <div className="flex flex-col-reverse lg:flex-row justify-between md:gap-3 lg:gap-6 my-10">
 
                 <ToastContainer></ToastContainer>
-                <div className="relative w-full lg:w-2/5">
+                <div className="relative mx-2 lg:w-2/5">
                     <div className="absolute top-0 left-0 rounded-2xl z-10 opacity-70 bg-black w-full h-full">
-                        <div className="max-w-md space-y-5 mx-auto text-center pt-40">
-                            <h2 className="text-thirdColor font-montserrat font-black text-3xl">Sign up and try our services.</h2>
-                            <p className="text-white  font-montserrat font-black text-3xl">We are the best in the field</p>
+                        <div className="max-w-md space-y-5 mx-auto text-center pt-16 md:pt-32 lg:pt-40">
+                            <h2 className="text-thirdColor font-montserrat font-black text-xl md:text-3xl lg:text-3xl">Sign up and try our services.</h2>
+                            <p className="text-white  font-montserrat font-black text-2xl md:text-3xl lg:text-3xl">We are the best in the field</p>
                         </div>
                     </div>
                     <SwiperSlider></SwiperSlider>

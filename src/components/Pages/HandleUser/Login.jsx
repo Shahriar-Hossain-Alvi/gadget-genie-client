@@ -86,11 +86,12 @@ const Login = () => {
             <ToastContainer></ToastContainer>
 
             <div className="my-8 flex flex-col lg:flex-row items-center justify-center">
-                <div className="lg:w-2/5 mb-8 lg:mb-0">
+                <div className="md:w-full lg:w-2/5 mb-8 lg:mb-0">
                     <Lottie
                         options={defaultOptions}
-                        height={400}
-                        width={400}
+                        // height={400}
+                        // width={400}
+                        style={{ height: '300px', width: '300px' }}
                     />
                 </div>
 
