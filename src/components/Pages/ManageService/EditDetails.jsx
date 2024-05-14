@@ -32,7 +32,7 @@ const EditDetails = () => {
             confirmButtonText: "Yes, approve"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/services/${_id}`, {
+                fetch(`https://gadget-genie-server.vercel.app/services/${_id}`, {
                     method: 'PATCH',
                     headers: {
                         'content-type': 'application/json'
@@ -48,13 +48,6 @@ const EditDetails = () => {
                                 text: "Your service information updated successfully.",
                                 icon: "success"
                             });
-
-                            //update
-                            // const remaining = checkouts.filter(checkout => checkout._id !== id);
-                            // const updatedCheckout = checkouts.find(checkout => checkout._id === id);
-                            // updatedCheckout.status = 'confirm';
-                            // const newCheckouts = [updatedCheckout, ...remaining];
-                            // setCheckouts(newCheckouts)
                         }
                     })
             }

@@ -17,6 +17,24 @@ const FaqSlider = () => {
             <Swiper
                 slidesPerView={3}
                 spaceBetween={30}
+                breakpoints={{
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 1,
+                    },
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 40,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 50,
+                    },
+                }}
                 navigation={true}
                 loop={true}
                 modules={[Navigation]}

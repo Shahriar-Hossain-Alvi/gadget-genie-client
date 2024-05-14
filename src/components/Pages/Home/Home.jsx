@@ -45,7 +45,7 @@ const Home = () => {
                 {/* popular services */}
                 <div className="my-20">
                     <h2 className="text-4xl font-bold text-center font-montserrat mb-3">Popular Services</h2>
-                    <p className="text-center font-medium text-lg text-secondaryColor mb-8 max-w-md mx-auto">Here are some popular services of us. Scroll down and hit show all to see all the services we provide</p>
+                    <p className="text-center font-medium text-lg text-secondaryColor mb-8 max-w-xs md:max-w-md lg:max-w-lg mx-auto">Here are some popular services of us. Scroll down and hit show all to see all the services we provide</p>
                     <PopularServices></PopularServices>
 
                     <div className="text-center mt-6">

@@ -17,7 +17,7 @@ const Testimonial = () => {
 
 
     return (
-        <div className="my-10 px-6">
+        <div className="my-10 px-6 text-center mx-2 lg:mx-0">
             <h2 className="font-bold text-2xl text-center font-rubic mb-6">TESTIMONIALS</h2>
             <h1 className="text-3xl text-center font-rubic mb-3">Our Customers <span className="font-bold text-primaryColor">Are Saying?</span></h1>
 

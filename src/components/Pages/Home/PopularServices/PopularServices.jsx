@@ -19,7 +19,7 @@ const PopularServices = () => {
 
 
     return (
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mx-2 lg:mx-0">
             <Fade>
                 {
                     firstSixServices.map(service => <PopularServicesCard key={service._id} service={service}></PopularServicesCard>)

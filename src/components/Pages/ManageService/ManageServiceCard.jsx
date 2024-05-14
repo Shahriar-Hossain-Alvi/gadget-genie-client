@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 
 const ManageServiceCard = ({ mySingleService, handleDelete }) => {
-    // const { loggedInUser } = useContext(AuthContext);
     const { _id, imgURL, description, price, serviceName, serviceArea } = mySingleService;
 
 
