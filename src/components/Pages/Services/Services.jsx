@@ -25,7 +25,7 @@ const Services = () => {
 
 
     return (
-        <div className="mt-8">
+        <div className="mt-8 mb-10">
             <Helmet>
                 <title>Services | Gadget Genie</title>
             </Helmet>

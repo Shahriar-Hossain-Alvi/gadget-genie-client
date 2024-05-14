@@ -11,45 +11,45 @@ const DevicesFixed = () => {
         <div>
             <h2 className='text-3xl font-bold text-center font-montserrat mb-6'>Devices we've fixed</h2>
 
-            <div className='flex justify-between items-center text-center bg-primaryColor py-8 text-white px-10'>
+            <div className='grid grid-cols-3 lg:grid-cols-5 gap-2 justify-between items-center text-center bg-primaryColor py-8 text-white px-10'>
                 <div className='space-y-2'>
-                    <SlScreenSmartphone className='mx-auto w-10 h-10' />
-                    <span className='text-2xl font-bold font-montserrat'>
+                    <SlScreenSmartphone className='mx-auto w-6 h-6 lg:w-10 lg:h-10' />
+                    <span className='lg:text-2xl font-bold font-montserrat'>
                         <SlotCounter value={312} duration={2} />
                     </span>
-                    <h2>Smartphones</h2>
+                    <h2 className='text-sm'>Smartphones</h2>
                 </div>
 
                 <div className='space-y-2'>
-                    <GiLaptop className='mx-auto w-10 h-10' />
-                    <span className='text-2xl font-bold font-montserrat'>
+                    <GiLaptop className='mx-auto w-6 h-6 lg:w-10 lg:h-10' />
+                    <span className='lg:text-2xl font-bold font-montserrat'>
                         <SlotCounter value={258} duration={2} />
                     </span>
-                    <h2>Laptops</h2>
+                    <h2 className='text-sm'>Laptops</h2>
                 </div>
 
                 <div className='space-y-2'>
-                    <GiConsoleController className='mx-auto w-10 h-10' />
-                    <span className='text-2xl font-bold font-montserrat'>
+                    <GiConsoleController className='mx-auto w-6 h-6 lg:w-10 lg:h-10' />
+                    <span className='lg:text-2xl font-bold font-montserrat'>
                         <SlotCounter value={87} duration={2} />
                     </span>
-                    <h2>Gaming Consols</h2>
+                    <h2 className='text-sm'>Gaming Consols</h2>
                 </div>
 
                 <div className='space-y-2'>
-                    <IoDesktopOutline className='mx-auto w-10 h-10' />
-                    <span className='text-2xl font-bold font-montserrat'>
+                    <IoDesktopOutline className='mx-auto w-6 h-6 lg:w-10 lg:h-10' />
+                    <span className='lg:text-2xl font-bold font-montserrat'>
                         <SlotCounter value={178} duration={2} />
                     </span>
-                    <h2>Desktops</h2>
+                    <h2 className='text-sm'>Desktops</h2>
                 </div>
 
                 <div className='space-y-2'>
-                    <BsSmartwatch className='mx-auto w-10 h-10' />
-                    <span className='text-2xl font-bold font-montserrat'>
+                    <BsSmartwatch className='mx-auto w-6 h-6 lg:w-10 lg:h-10' />
+                    <span className='lg:text-2xl font-bold font-montserrat'>
                         <SlotCounter value={123} duration={2} />
                     </span>
-                    <h2>Smartwatches</h2>
+                    <h2 className='text-sm'>Smartwatches</h2>
                 </div>
             </div>
         </div>

@@ -62,8 +62,8 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="btn btn-ghost items-center">
-                    <Link to="/" className="flex items-center text-xl text-white font-montserrat">
-                        <img className="w-12 h-12 rounded-full" src={navLogo} alt="" />
+                    <Link to="/" className="flex items-center lg:text-xl text-white font-montserrat">
+                        <img className="w-10 h-10 lg:w-12 lg:h-12 rounded-full" src={navLogo} alt="" />
                         Gadget Genie
                     </Link>
                 </div>

@@ -1,19 +1,73 @@
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const EditDetails = () => {
     const singleService = useLoaderData();
-    console.log(singleService);
+    // console.log(singleService);
 
     const { _id, serviceName, imgURL, price, providerEmail, description, providerName, serviceArea } = singleService;
+
+    const handleEdit = e => {
+        e.preventDefault();
+        const form = e.target;
+        const serviceName = form.serviceName.value;
+        const imgURL = form.imgURL.value;
+        const serviceArea = form.serviceArea.value;
+        const price = form.price.value;
+        const description = form.description.value;
+
+        const updatedService = {
+            serviceName, imgURL, serviceArea, price, description, status: 'done'
+        }
+
+
+        Swal.fire({
+            title: "Proceed?",
+            text: "Check Before Updating",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, approve"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/services/${_id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(updatedService)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.modifiedCount > 0) {
+                            Swal.fire({
+                                title: "Updated!",
+                                text: "Your service information updated successfully.",
+                                icon: "success"
+                            });
+
+                            //update
+                            // const remaining = checkouts.filter(checkout => checkout._id !== id);
+                            // const updatedCheckout = checkouts.find(checkout => checkout._id === id);
+                            // updatedCheckout.status = 'confirm';
+                            // const newCheckouts = [updatedCheckout, ...remaining];
+                            // setCheckouts(newCheckouts)
+                        }
+                    })
+            }
+        });
+
+    }
 
     return (
         <div>
             <h2 className="text-3xl text-center font-bold mt-5 font-montserrat underline">Edit and Update Service Info</h2>
 
-
             <div className="my-10">
-                <form>
+                <form onSubmit={handleEdit}>
                     {/* service id and name */}
                     <div className="grid grid-cols-2 gap-5">
                         <div className="form-control">
@@ -57,8 +111,9 @@ const EditDetails = () => {
                             <label className="label">
                                 <span className="label-text">Price</span>
                             </label>
-                            <input name="price" type="text" placeholder="price"
-                                defaultValue={price} className="input input-bordered" required />
+                            <input name="price" type="text"
+                                defaultValue={price}
+                                placeholder="price" className="input input-bordered" />
                         </div>
                     </div>
 
@@ -67,7 +122,7 @@ const EditDetails = () => {
                         <label className="label">
                             <span className="label-text">description</span>
                         </label>
-                        <textarea name="description"
+                        <textarea defaultValue={description} name="description"
                             className="textarea textarea-bordered" placeholder="Write the details of your service"></textarea>
                     </div>
 

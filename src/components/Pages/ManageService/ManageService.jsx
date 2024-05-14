@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { AuthContext } from "../../Providers/AuthProvider";
 import ManageServiceCard from "./ManageServiceCard";
+import Swal from "sweetalert2";
 
 
 const ManageService = () => {
@@ -26,12 +27,37 @@ const ManageService = () => {
         </div>
     }
 
-    const handleEdit = id => {
-        console.log('clicked', id);
-    }
 
+    //delete a service
     const handleDelete = id => {
-        console.log('clicked', id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`https://gadget-genie-server.vercel.app/services/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                            const remaining = myAddedServices.filter(mySingleAddedService => mySingleAddedService._id !== id);
+                            setMyAddedServices(remaining);
+                        }
+                    })
+            }
+        });
     }
 
     return (
@@ -42,12 +68,11 @@ const ManageService = () => {
 
             <h1 className="text-center text-4xl font-bold font-montserrat underline mt-5 mb-10">My Added Services</h1>
 
-            <div className="space-y-5">
+            <div className="space-y-5 mb-10">
                 {
                     myAddedServices.map(mySingleService => <ManageServiceCard
-                        key={mySingleService._id} 
-                        mySingleService={mySingleService} 
-                        handleEdit={handleEdit} 
+                        key={mySingleService._id}
+                        mySingleService={mySingleService}
                         handleDelete={handleDelete}
                     ></ManageServiceCard>)
                 }

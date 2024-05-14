@@ -29,7 +29,7 @@ const Home = () => {
 
             <div>
                 {/* banner */}
-                <div className="my-4 grid grid-cols-2 gap-4 overflow-hidden">
+                <div className="my-4 grid grid-cols-1  md:grid-cols-2 lg:grid-cols-2 md:gap-3 lg:gap-4 overflow-hidden mx-2 lg:mx-0">
                     <div className="flex flex-col justify-center">
                         <h2 className="font-bold font-montserrat text-5xl">Don't Trash It, Fix It! <span className="text-thirdColor italic underline">Gadget Genie</span> to the Rescue!</h2>
                         <p className="text-xl mt-3 font-medium">We breathe new life into your electronics. Expert repairs, affordable prices.</p>

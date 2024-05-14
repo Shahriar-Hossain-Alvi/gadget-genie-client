@@ -66,7 +66,7 @@ const ServiceDetails = () => {
 
 
             {/* provider details */}
-            <div className="mb-6 border rounded-2xl border-secondaryColor max-w-lg py-4 mx-auto">
+            <div className="mb-6 border rounded-2xl border-secondaryColor max-w-xl py-4 mx-auto">
                 <h2 className="text-center font-medium text-2xl">Details of Service Provider</h2>
                 <div className="flex gap-5 items-center justify-center">
                     <img className="w-28 h-28 rounded-full" src={providerImage} alt="" />
