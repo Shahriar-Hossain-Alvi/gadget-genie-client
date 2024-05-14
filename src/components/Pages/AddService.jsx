@@ -63,7 +63,7 @@ const AddService = () => {
 
                             <form onSubmit={handleAddService} className="card-body w-full">
                                 {/* service image and name */}
-                                <div className="grid grid-cols-2 gap-5">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Image url of the service</span>
@@ -79,7 +79,7 @@ const AddService = () => {
                                 </div>
 
                                 {/* service price and area */}
-                                <div className="grid grid-cols-2 gap-5">
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Price</span>
@@ -107,7 +107,7 @@ const AddService = () => {
 
 
                                 {/* service provider information */}
-                                <div className="grid grid-cols-3 gap-3">
+                                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-3">
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Provider</span>

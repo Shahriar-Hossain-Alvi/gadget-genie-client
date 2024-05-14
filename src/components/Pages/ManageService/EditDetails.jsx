@@ -59,10 +59,10 @@ const EditDetails = () => {
         <div>
             <h2 className="text-3xl text-center font-bold mt-5 font-montserrat underline">Edit and Update Service Info</h2>
 
-            <div className="my-10">
+            <div className="my-10 max-w-xs md:max-w-2xl mx-auto lg:max-w-6xl">
                 <form onSubmit={handleEdit}>
                     {/* service id and name */}
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Service ID</span>
@@ -93,7 +93,7 @@ const EditDetails = () => {
 
 
                     {/* service area and price */}
-                    <div className="grid grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  gap-5">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Service Area</span>
