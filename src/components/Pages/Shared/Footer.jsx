@@ -7,7 +7,7 @@ import { MdMailOutline } from "react-icons/md";
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10 bg-primaryColor text-white">
+            <footer className="footer p-10 bg-primaryColor text-white md:grid md:grid-cols-2 lg:flex lg:justify-between">
                 <aside>
                     <img className="w-24 h-24" src={logo} alt="" />
                     <p className="font-bold font-montserrat text-2xl">Gadget Genie</p>
@@ -78,7 +78,7 @@ const Footer = () => {
 
 
             {/* copyright section */}
-            <footer className="footer items-center p-4 bg-neutral text-neutral-content">
+            <footer className="footer items-center p-4 bg-neutral text-neutral-content flex justify-between">
                 <aside className="items-center grid-flow-col">
                     <img className="w-10 h-10" src={logo} alt="" />
                     <p>Copyright © 2024 - All right reserved</p>

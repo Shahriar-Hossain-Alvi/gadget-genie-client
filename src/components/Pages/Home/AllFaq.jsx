@@ -8,10 +8,10 @@ const Faq = () => {
                 <title>
                     FAQs || Gadget Genie
                 </title>
-            </Helmet>
+            </Helmet> 
             <h2 className="text-3xl font-bold text-center mt-6">Frequently Asked Questions</h2>
 
-            <div className="grid grid-cols-3 gap-5 mt-10 mb-10">
+            <div className="grid grid-cols-1 mx-2 lg:mx-0 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 mb-10 space-y-5">
 
                 <div className="border p-4 rounded-xl relative">
                     <div className="bg-primaryColor w-16 h-16 flex items-center justify-center rounded-full absolute -top-6 left-1/2 -translate-x-1/2 ">
