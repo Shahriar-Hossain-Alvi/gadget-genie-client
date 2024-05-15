@@ -8,13 +8,13 @@ const BookedServicesCard = ({ myBookedService }) => {
         <tr>
             
             <td>
-                <div className="flex items-center gap-3">
+                <div className="flex flex-col md:flex-row lg:flex-row items-center gap-3">
                     <div className="avatar">
-                        <div className="mask mask-squircle w-20 h-20">
+                        <div className="mask mask-squircle w-12 h-12 md:w-16 md:h-16 lg:w-20 lg:h-20">
                             <img src={imgURL} alt="" />
                         </div>
                     </div>
-                    <div>
+                    <div className='text-center md:text-left lg:text-left'>
                         <div className="font-bold">{serviceName}</div>
                         <div className="text-sm opacity-50">Price: ${price}</div>
                     </div>

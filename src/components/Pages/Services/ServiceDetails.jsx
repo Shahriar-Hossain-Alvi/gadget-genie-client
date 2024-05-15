@@ -68,9 +68,9 @@ const ServiceDetails = () => {
             {/* provider details */}
             <div className="mb-6 border rounded-2xl border-secondaryColor max-w-xs md:max-w-xl lg:max-w-lg py-4 mx-auto">
                 <h2 className="text-center font-medium text-2xl">Details of Service Provider</h2>
-                <div className="flex gap-5 items-center justify-center">
+                <div className="flex md:flex-row lg:flex-row flex-col gap-5 items-center justify-center">
                     <img className="w-16 h-16 md:w-28 lg:w-28 md:h-28 lg:h-28 rounded-full" src={providerImage} alt="" />
-                    <div>
+                    <div className='text-center'>
                         <h2 className="text-3xl font-bold font-montserrat mb-1">{providerName}</h2>
                         <h4 className="text-xl font-medium text-secondaryColor">{providerEmail}</h4>
                     </div>
@@ -109,7 +109,7 @@ const ServiceDetails = () => {
                     <div>
                         <form onSubmit={handleBooking}>
                             {/* service id and name */}
-                            <div className="grid grid-cols-2 gap-5">
+                            <div className="grid grid-cols-1 lg:grid-cls-2 gap-5">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Service ID</span>
@@ -140,7 +140,7 @@ const ServiceDetails = () => {
 
 
                             {/* provider name and email */}
-                            <div className="grid grid-cols-2 gap-5">
+                            <div className="grid grid-cols-1 lg:grid-cls-2 gap-5">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Provider Name</span>
@@ -158,7 +158,7 @@ const ServiceDetails = () => {
 
 
                             {/* current user email and name */}
-                            <div className="grid grid-cols-2 gap-5">
+                            <div className="grid grid-cols-1 lg:grid-cls-2 gap-5">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Current User Email</span>
@@ -176,7 +176,7 @@ const ServiceDetails = () => {
 
 
                             {/* service taking date and price */}
-                            <div className="grid grid-cols-2 gap-5">
+                            <div className="grid grid-cols-1 lg:grid-cls-2 gap-5">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Pick a date for servicing</span>

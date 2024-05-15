@@ -4,7 +4,6 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { LuSun } from "react-icons/lu";
 import { MdOutlineDarkMode } from "react-icons/md";
-import { FaMoon } from "react-icons/fa";
 
 const Navbar = () => {
 
@@ -79,6 +78,23 @@ const Navbar = () => {
                     </div>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-primaryColor text-white rounded-box w-52">
                         {navLinks}
+                        <li>
+                            <label className="swap swap-rotate mr-1 md:mr-3 lg:mr-3 md:hidden">
+
+                                {/* this hidden checkbox controls the state */}
+                                <input
+                                    onChange={handleToogleTheme}
+                                    checked={theme === 'light' ? false : true}
+                                    type="checkbox" />
+
+                                {/* sun icon */}
+                                <LuSun className="swap-on fill-current w-6 h-6 md:w-10 md:h-10 lg:w-10 lg:h-10" />
+
+                                {/* moon icon */}
+
+                                <MdOutlineDarkMode className="swap-off fill-current w-6 h-6 md:w-10 md:h-10 lg:w-10 lg:h-10 text-white" />
+                            </label>
+                        </li>
                     </ul>
                 </div>
                 <div className="btn btn-ghost items-center">
@@ -88,6 +104,8 @@ const Navbar = () => {
                     </Link>
                 </div>
             </div>
+
+
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 text-white">
                     {navLinks}
@@ -109,14 +127,14 @@ const Navbar = () => {
                             <LuSun className="swap-on fill-current w-6 h-6 md:w-10 md:h-10 lg:w-10 lg:h-10" />
 
                             {/* moon icon */}
-                            <FaMoon className="swap-off fill-current w-6 h-6 md:w-10 md:h-10 lg:w-10 lg:h-10 text-white" />
-                            {/* <MdOutlineDarkMode className="swap-off fill-current w-6 h-6 md:w-10 md:h-10 lg:w-10 lg:h-10 text-white" /> */}
+
+                            <MdOutlineDarkMode className="swap-off fill-current w-6 h-6 md:w-10 md:h-10 lg:w-10 lg:h-10 text-white" />
                         </label>
                         <span className="loading loading-spinner text-white"></span>
                     </div>
                     :
                     <div className="navbar-end">
-                        <label className="swap swap-rotate mr-1 md:mr-3 lg:mr-3">
+                        <label className="swap swap-rotate mr-1 md:mr-3 lg:mr-3 invisible md:visible lg:visible">
 
                             {/* this hidden checkbox controls the state */}
                             <input
@@ -128,7 +146,8 @@ const Navbar = () => {
                             <LuSun className="swap-on fill-current w-6 h-6 md:w-10 md:h-10 lg:w-10 lg:h-10" />
 
                             {/* moon icon */}
-                            <MdOutlineDarkMode className="swap-off fill-current w-6 h-6 md:w-10 md:h-10 lg:w-10 lg:h-10" />
+
+                            <MdOutlineDarkMode className="swap-off fill-current w-6 h-6 md:w-10 md:h-10 lg:w-10 lg:h-10 text-white" />
                         </label>
                         {
                             loggedInUser ?
@@ -155,9 +174,6 @@ const Navbar = () => {
                                     </Link>
                                 </div>
                         }
-
-
-
                     </div>
             }
 

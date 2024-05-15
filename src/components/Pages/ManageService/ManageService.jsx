@@ -66,9 +66,9 @@ const ManageService = () => {
                 <title>Manage Service | Gadget Genie</title>
             </Helmet>
 
-            <h1 className="text-center text-4xl font-bold font-montserrat underline mt-5 mb-10">My Added Services</h1>
+            <h1 className="text-center text-3xl md:text-4xl lg:text-4xl font-bold font-montserrat underline mt-5 mb-10">My Added Services</h1>
 
-            <div className="space-y-5 mb-10">
+            <div className="space-y-5 mb-10 mx-2 lg:mx-0">
                 {
                     myAddedServices.map(mySingleService => <ManageServiceCard
                         key={mySingleService._id}
