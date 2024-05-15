@@ -44,7 +44,7 @@ const ServiceDetails = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 // sweet alert
                 if (data.insertedId) {
                     Swal.fire({
@@ -72,7 +72,6 @@ const ServiceDetails = () => {
                     <img className="w-16 h-16 md:w-28 lg:w-28 md:h-28 lg:h-28 rounded-full" src={providerImage} alt="" />
                     <div className='text-center'>
                         <h2 className="text-3xl font-bold font-montserrat mb-1">{providerName}</h2>
-                        <h4 className="text-xl font-medium text-secondaryColor">{providerEmail}</h4>
                     </div>
                 </div>
                 <h2 className="text-center mt-5 text-2xl font-semibold ">Service Area: {serviceArea}</h2>

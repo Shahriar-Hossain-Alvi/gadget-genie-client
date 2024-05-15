@@ -33,7 +33,7 @@ const AddService = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 // sweet alert
                 if (data.insertedId) {
                     Swal.fire({

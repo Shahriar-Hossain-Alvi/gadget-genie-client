@@ -40,7 +40,7 @@ const Register = () => {
         //create new user
         createUser(email, password)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 toast('Profile Created successfully!');
                 updateProfile(result.user, {
                     displayName: name, photoURL: photoUrl
@@ -48,7 +48,7 @@ const Register = () => {
                     setTimeout(() => {
                         navigate(location?.state ? location.state : '/userProfile');
                     }, 1500)
-                    console.log(result.user);
+                    // console.log(result.user);
                 }).catch((error) => {
                     toast.error(error);
                 });
@@ -77,7 +77,7 @@ const Register = () => {
                     setTimeout(() => {
                         navigate(location?.state ? location.state : '/');
                     }, 1500)
-                    console.log(result.user);
+                    // console.log(result.user);
                 })
                 .catch(error => {
                     toast.error(error.message);

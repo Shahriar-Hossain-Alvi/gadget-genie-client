@@ -8,7 +8,7 @@ const TodoService = () => {
                 <title>Todo Service | Gadget Genie</title>
             </Helmet>
 
-            <h2>Todo Service</h2>
+            <h2 className="text-center font-bold my-10 text-3xl">Todo Service Under construction</h2>
         </div>
     );
 };

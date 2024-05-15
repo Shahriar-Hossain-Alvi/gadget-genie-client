@@ -69,7 +69,7 @@ const Login = () => {
                     setTimeout(() => {
                         navigate(location?.state ? location.state : '/');
                     }, 1500)
-                    console.log(result.user);
+                    // console.log(result.user);
                 })
                 .catch(error => {
                     toast.error(error.message);
