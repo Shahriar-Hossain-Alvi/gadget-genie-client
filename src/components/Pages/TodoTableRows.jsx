@@ -1,8 +1,32 @@
 import PropTypes from 'prop-types';
+import Swal from 'sweetalert2';
 
 
 const TodoTableRows = ({ singleTodoService, index }) => {
-    const { serviceName, serviceDate, price, bookedUserEmail, bookedUserName, instruction, status } = singleTodoService;
+    const { _id, serviceName, serviceDate, price, bookedUserEmail, bookedUserName, instruction, status } = singleTodoService;
+
+    const handleStatusUpdate = e => {
+        const status = e.target.value;
+
+        fetch(`http://localhost:5000/todo-services/${_id}`, {
+            method: "PATCH",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ status: status })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Statues Updated",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+    }
 
     return (
         <tr>
@@ -16,7 +40,7 @@ const TodoTableRows = ({ singleTodoService, index }) => {
             </td>
             <td>{instruction}</td>
             <td>
-                <select className="select w-full max-w-xs">
+                <select onChange={handleStatusUpdate} className="select w-full max-w-xs">
                     <option defaultValue>{status}</option>
                     <option>working</option>
                     <option>completed</option>
