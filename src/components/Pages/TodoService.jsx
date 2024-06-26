@@ -9,7 +9,7 @@ const TodoService = () => {
     const [servicesTodo, setServicesTodo] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/todo-services/${loggedInUser?.email}`)
+        fetch(`https://gadget-genie-server.vercel.app/todo-services/${loggedInUser?.email}`)
             .then(res => res.json())
             .then(data => {
                 setServicesTodo(data)

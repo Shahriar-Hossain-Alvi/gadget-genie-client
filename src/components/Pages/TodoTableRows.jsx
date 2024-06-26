@@ -8,7 +8,7 @@ const TodoTableRows = ({ singleTodoService, index }) => {
     const handleStatusUpdate = e => {
         const status = e.target.value;
 
-        fetch(`http://localhost:5000/todo-services/${_id}`, {
+        fetch(`https://gadget-genie-server.vercel.app/todo-services/${_id}`, {
             method: "PATCH",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ status: status })
