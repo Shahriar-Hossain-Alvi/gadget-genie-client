@@ -10,12 +10,26 @@
 /* custom css */
 #navbar a.active{
     background-color: #2bb4e6;
+    color: white;
 }
 
 #navbar a:hover{
     background-color: #7a7a7a;
 }
 
+
+::-webkit-scrollbar{
+    width: 15px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #083061;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #2bb4e6;
+    border-radius: 10px;
+}
 
 
 

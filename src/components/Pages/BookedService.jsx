@@ -18,7 +18,6 @@ const BookedService = () => {
             })
     }, [loggedInUserEmail])
 
-    // console.log(myBookedServices);
 
     return (
         <div>
