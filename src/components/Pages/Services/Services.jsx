@@ -32,7 +32,7 @@ const Services = () => {
                 <h2 className="text-center font-bold text-4xl font-montserrat underline mt-5">All Services</h2>
                 <p className="text-center text-lg font-medium mt-3 mb-10">Discover all the services we provide here</p>
 
-                <form onSubmit={handleSearch} className="flex items-center justify-center gap-3 mb-10">
+                <form onSubmit={handleSearch} className="flex flex-col md:flex-row items-center justify-center gap-3 mb-10">
                     <h2>Search by name</h2>
                     <input name="search" type="text" className="bg-transparent border rounded-xl border-thirdColor px-2 py-1" />
 
