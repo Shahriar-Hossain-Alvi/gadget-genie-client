@@ -4,7 +4,6 @@ import { Fade } from "react-awesome-reveal";
 import { useEffect, useState } from "react";
 
 const Services = () => {
-    // const [spinner, setSpinner] = useState(false);
     const [services, setServices] = useState([]);
     const [searchedText, setSearchedText] = useState('');
 
@@ -16,11 +15,6 @@ const Services = () => {
             })
     }, [searchedText])
 
-    if (services.length === 0) {
-        return <div className="flex justify-center mt-40">
-            <span className="loading loading-bars loading-lg"></span>
-        </div>
-    }
 
     const handleSearch = e => {
         e.preventDefault();
@@ -48,7 +42,10 @@ const Services = () => {
                 <div className="space-y-4">
                     <Fade>
                         {
-                            services.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)
+                            services.length === 0 ?
+                                <h2 className="text-center font-montserrat text-2xl font-semibold">No Services available</h2>
+                                :
+                                services.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)
                         }
                     </Fade>
                 </div>
