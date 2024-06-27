@@ -22,7 +22,7 @@ const TodoService = () => {
                 <title>Todo Service | Gadget Genie</title>
             </Helmet>
 
-            <h2 className="text-center font-bold my-10 text-3xl">Todo Service Under construction</h2>
+            <h2 className="text-center font-bold my-10 text-3xl">Services to do</h2>
 
             <div className="overflow-x-auto">
                 <table className="table">
