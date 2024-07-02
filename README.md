@@ -28,3 +28,9 @@ Gadget Genie is an electronic repair service-sharing website where sellers can a
 - Tailwind
 - DaisyUI
 - Firebase
+
+## If you want to clone and run this project on your local device use
+```
+npm install 
+npm run dev
+```
